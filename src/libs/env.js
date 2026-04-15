@@ -1,4 +1,1 @@
-import { configDotenv } from "dotenv";
-
-configDotenv()
-export const BASE_URL = process.env.BASE_URL || "";
+export const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL || "";
