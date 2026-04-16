@@ -1,5 +1,5 @@
 // Awali dengan bx bx-${icons}
-const Icons = [
+export const Icons = [
   "dumbbell-alt",
   "book-open",
   "briefcase-alt-2",
