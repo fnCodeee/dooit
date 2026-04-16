@@ -12,8 +12,8 @@ export default function Dashboard() {
   const fetchTask = async () => {
     try {
       const data = await taskService.getAll();
-      setTasks(data.data.data);
-      console.log(data.data.data);
+      setTasks(data.data);
+      console.log("fetch", data);
     } catch (error) {
       console.error("gagal ambil data!", error.message);
     } finally {
@@ -24,6 +24,7 @@ export default function Dashboard() {
   useEffect(() => {
     fetchTask();
   }, []);
+  console.log("console tasks after useEffect", tasks)
 
   // VIEW
   return (

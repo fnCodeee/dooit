@@ -39,6 +39,7 @@ export default function Login({ onLogin }) {
               <div className="flex flex-col gap-3">
                 <h1 className="text-white font-semibold text-sm">Email</h1>
                 <input
+                name="email"
                 onChange={handleChange}
                   placeholder="Enter Email"
                   className="p-2.5 rounded-md bg-white border-0 w-full focus:outline-0"
@@ -49,7 +50,8 @@ export default function Login({ onLogin }) {
               <div className="flex flex-col gap-3">
                 <h1 className="text-white font-semibold text-sm">Password</h1>
                 <input
-                  handleChange={handleChange}
+                name="password"
+                  onChange={handleChange}
                   placeholder="Enter Password"
                   className="p-2.5 rounded-md bg-white border-0 w-full focus:outline-0"
                   type="password"

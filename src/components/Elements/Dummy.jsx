@@ -10,7 +10,7 @@ const Dummy = () => {
   const fetchTask = async () => {
     try {
       const data = await taskService.getAll();
-      setTask(data.data.data);
+      setTask(data.data);
       // console.log(data)
     } catch (error) {
       console.error("Gagal ambil task: ", error)
