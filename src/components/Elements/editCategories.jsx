@@ -28,7 +28,7 @@ export default function EditCategories({ onClose }) {
                 <div className="flex flex-col gap-6">
                     {/*  */}
                     <div className="flex flex-col gap-2">
-                        <h1 className="font-semibold text-xl">
+                        <h1 className="font-semibold text-xl text-start">
                             Categories Name <span className="text-red-500">*</span>
                         </h1>
                         <input
@@ -40,7 +40,7 @@ export default function EditCategories({ onClose }) {
 
                     {/*  */}
                     <div className="flex flex-col gap-2">
-                        <h1 className="font-semibold text-xl">Chose Icons</h1>
+                        <h1 className="font-semibold text-xl text-start">Chose Icons</h1>
                         <div className="flex justify-between gap-2.5">
                             {Icons.map((icon) => (
                                 <button key={icon} className="text-white flex items-center flex-col text-lg bg-blue1 rounded-xl w-full py-3">

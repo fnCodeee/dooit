@@ -16,7 +16,7 @@ export default function Edit({ onClose }) {
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-3 ">
                 <i className="bx bx-calendar text-blue1 text-3xl" />
-                <h1 className="font-semibold text-3xl">Create Task</h1>
+                <h1 className="font-semibold text-3xl">Edit Task</h1>
               </div>
               <button className="cursor-pointer" type="button" onClick={onClose}>
                 <i className="bx bx-x text-2xl text-abu-one" />
