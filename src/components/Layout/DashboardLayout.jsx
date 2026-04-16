@@ -1,11 +1,11 @@
 import React from "react";
 
-const DashboardLayout = ({children}) => {
+const DashboardLayout = ({ children }) => {
   return (
-    <section className="">
+    <section className="h-screen overflow-hidden">
       <div className="bg-white">
         <div className="pr-16 pl-32 py-6 flex flex-col gap-6">
-          <span className="font-semibold text-sm text-dark-blue">Name App</span>
+          <span className="font-semibold text-sm text-dark-blue">Dooit</span>
           <div className="w-full h-0.5 bg-abu-one"></div>
           <div className="flex justify-between items-center">
             <div>
@@ -13,7 +13,7 @@ const DashboardLayout = ({children}) => {
                 Active Task
               </h1>
               <p className="text-sm text-abu-one">
-                Heyy user, what do you want to do today?
+                Heyy Bro! what do you want to do today?
               </p>
             </div>
 
@@ -33,10 +33,10 @@ const DashboardLayout = ({children}) => {
         </div>
       </div>
 
-      <div className="pr-16 pl-32 mt-3">
+      <div className="h-full pr-16 pl-32 mt-3">
         <h1 className="font-semibold text-dark-blue text-base">Task</h1>
         {/* <Todo/> */}
-        {children}
+        <div className="h-4/6 overflow-y-scroll overflow-custom pr-4">{children}</div>
       </div>
     </section>
   );

@@ -1,6 +1,8 @@
+import Register from "@/components/register.jsx";
+
 const Auth = () => {
   return (
-    <div>REGISTER</div>
+    <Register />
   )
 }
 

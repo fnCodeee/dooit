@@ -1,10 +1,7 @@
-"use client"
-
-import taskService from "@/services/task.service.js";
-import { useEffect, useState } from "react";
+"use client";
 
 export default function Todo(props) {
-  const { key, title, category, deadline } = props;
+  const { title, category, startFrom, deadline, priority } = props;
 
   return (
     <section className="mt-3">
@@ -18,10 +15,15 @@ export default function Todo(props) {
             <h1 className="text-lg font-semibold whitespace-nowrap">
               Start from
             </h1>
-            <div className="flex items-center justify-between gap-1 text-abu-one">
+            <div className="flex items-center gap-1 text-abu-one">
               <i className="bx bx-clock text-lg" />
               {/* time */}
-              <p className="text-sm whitespace-nowrap">08.00 am</p>
+              <p className="text-sm text-left whitespace-nowrap">
+                {new Date(startFrom).toLocaleTimeString("en-EN", {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </p>
             </div>
           </div>
         </div>
@@ -29,15 +31,21 @@ export default function Todo(props) {
         {/* main */}
         <div className="flex items-center w-full justify-center py-3 px-16">
           <div className="w-full">
-            <h1 className="text-lg font-semibold">Title/long text</h1>
+            <h1 className="text-lg font-semibold">{title}</h1>
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-1">
                 <i className="bx bx-calendar-alt text-abu-one" />
-                <span className="text-abu-one text-sm">01/25/2026</span>
+                <span className="text-abu-one text-sm">
+                  {new Date(deadline).toLocaleDateString("id-ID", {
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </span>
               </div>
               <div className="flex items-center gap-1">
                 <i className="bx bx-movie-play text-abu-one" />
-                <span className="text-abu-one text-sm">Category</span>
+                <span className="text-abu-one text-sm">{category}</span>
               </div>
             </div>
           </div>
