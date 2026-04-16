@@ -1,12 +1,12 @@
 "use client"
 
 import taskService from "@/services/task.service.js";
+import { Asap_Condensed } from "next/font/google/index.js";
 import { useEffect, useState } from "react"
 
 const Dummy = () => {
   const [task, setTask] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const fetchTask = async () => {
     try {
       const data = await taskService.getAll();

@@ -15,11 +15,11 @@ export default function Modal({ onClose }) {
         {/* Modal Header */}
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3 ">
-            <i class="bx bx-calendar text-blue1 text-3xl" />
+            <i className="bx bx-calendar text-blue1 text-3xl" />
             <h1 className="font-semibold text-3xl">Create Task</h1>
           </div>
-          <button type="button" onClick={onClose}>
-            <i class="bx bx-x text-2xl text-abu-one" />
+          <button className="cursor-pointer" type="button" onClick={onClose}>
+            <i className="bx bx-x text-2xl text-abu-one" />
           </button>
         </div>
 
@@ -80,7 +80,7 @@ export default function Modal({ onClose }) {
 
         {/*  */}
         <div className="flex gap-3">
-          <button className="text-lg border border-abu-one px-6 py-3 rounded-xl">
+          <button onClick={onClose} className="text-lg cursor-pointer hover:bg-abu-one border border-abu-one px-6 py-3 rounded-xl">
             Cancel
           </button>
           <button className="text-lg text-white bg-blue1 py-3 w-full rounded-xl">

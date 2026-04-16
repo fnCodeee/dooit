@@ -1,9 +1,16 @@
 "use client";
 
+import { useState } from "react";
+import Edit from "./edit";
+
 export default function Todo(props) {
   const { title, category, startFrom, deadline, priority } = props;
 
+  const [isOpen, setIsOpen] = useState(false);  
+
   return (
+    <>
+    {isOpen && <Edit onClose={() => setIsOpen(false)} />}
     <section className="mt-3">
       <div className="flex bg-white w-full rounded-2xl">
         <div className="flex gap-2.5 py-3 pl-6 pr-16 bg-s2-blue justify-between rounded-l-2xl">
@@ -47,6 +54,10 @@ export default function Todo(props) {
                 <i className="bx bx-movie-play text-abu-one" />
                 <span className="text-abu-one text-sm">{category}</span>
               </div>
+              <div className="flex items-center gap-1">
+                <i className="bx bx-flag-alt-2 text-abu-one" />
+                <span className="text-abu-one text-sm">{priority}</span>
+              </div>
             </div>
           </div>
 
@@ -55,10 +66,14 @@ export default function Todo(props) {
               <i className="bx bx-alarm-check text-2xl" />
               <span>completed</span>
             </button>
-            <i className="bx bx-edit text-3xl" />
+
+            <button onClick={() => setIsOpen(true)} className="cursor-pointer">
+              <i className="bx bx-edit text-3xl" />
+            </button>
           </div>
         </div>
       </div>
     </section>
+    </>
   );
 }
