@@ -5,7 +5,6 @@ const Icons = [
   "briefcase-alt-2",
   "popcorn",
   "fork-spoon",
-  "fork-spoon",
   "dollar-circle",
   "globe-alt",
 ];
