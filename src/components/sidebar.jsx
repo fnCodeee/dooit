@@ -2,10 +2,13 @@
 import { useEffect, useState } from "react";
 import Modal from "./Elements/Modal.jsx";
 import authService from "@/services/auth.service.js";
+import { usePathname } from "next/navigation";
+import CategoryModal from "./Elements/categoryModal.jsx";
 
 export default function SideBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [profile, setProfile] = useState([])
+  const pathname = usePathname();
   const handleLogout = () => {
     localStorage.removeItem("token")
   }
@@ -26,7 +29,13 @@ export default function SideBar() {
   console.log(profile)
   return (
     <>
-      {isOpen && <Modal onClose={() => setIsOpen(false)} />}
+      {isOpen && (
+        pathname === "/test" ? (
+          <CategoryModal onClose={() => setIsOpen(false)} />
+        ) : (
+          <Modal onClose={() => setIsOpen(false)} />
+        )
+      )}
       <section className="max-w-[5%] fixed h-full z-10">
         <div className="px-4 py-3 flex flex-col justify-between items-center h-full bg-white">
           <div>
