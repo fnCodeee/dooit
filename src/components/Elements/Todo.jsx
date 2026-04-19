@@ -4,9 +4,10 @@ import { useState } from "react";
 import Edit from "./edit";
 
 export default function Todo(props) {
-  const { title, category, startFrom, deadline, priority } = props;
+  const { title, category, startFrom, deadline, priority, categoryIcon } = props;
 
-  const [isOpen, setIsOpen] = useState(false);  
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(categoryIcon)
 
   return (
     <>
@@ -16,7 +17,7 @@ export default function Todo(props) {
         <div className="flex gap-2.5 py-3 pl-6 pr-16 bg-s2-blue justify-between rounded-l-2xl">
           {/* logo */}
           <div className="flex px-3.5 bg-blue1 rounded-2xl items-center justify-center">
-            <i className="bx bx-movie-play text-2xl text-white" />
+            <i className={`bx bx-${categoryIcon} text-2xl text-white`} />
           </div>
           <div>
             <h1 className="text-lg font-semibold whitespace-nowrap">
@@ -43,7 +44,7 @@ export default function Todo(props) {
               <div className="flex items-center gap-1">
                 <i className="bx bx-calendar-alt text-abu-one" />
                 <span className="text-abu-one text-sm">
-                  {new Date(deadline).toLocaleDateString("id-ID", {
+                  {new Date(startFrom).toLocaleDateString("id-ID", {
                     day: "2-digit",
                     month: "long",
                     year: "numeric",
@@ -51,7 +52,7 @@ export default function Todo(props) {
                 </span>
               </div>
               <div className="flex items-center gap-1">
-                <i className="bx bx-movie-play text-abu-one" />
+                <i className={`bx bx-${categoryIcon} text-abu-one`} />
                 <span className="text-abu-one text-sm">{category}</span>
               </div>
               <div className="flex items-center gap-1">

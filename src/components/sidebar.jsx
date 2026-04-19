@@ -1,41 +1,30 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Modal from "./Elements/Modal.jsx";
-import authService from "@/services/auth.service.js";
 import { usePathname } from "next/navigation";
 import CategoryModal from "./Elements/categoryModal.jsx";
+import useAuth from "@/hooks/useAuth.jsx";
 
 export default function SideBar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [profile, setProfile] = useState([])
+  const { profile } = useAuth();
+
   const pathname = usePathname();
+
   const handleLogout = () => {
-    localStorage.removeItem("token")
-  }
-  const fetchMe = async () => {
-    try {
-      const data = await authService.me();
-      setProfile(data.data)
-      console.log("fetch", data)
-    } catch (error) {
-      console.error(error.message)
-    }
-  }
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+  };
 
-  useEffect(() => {
-    fetchMe()
-  }, [])
 
-  console.log(profile)
   return (
     <>
-      {isOpen && (
-        pathname === "/category" ? (
+      {isOpen &&
+        (pathname === "/category" ? (
           <CategoryModal onClose={() => setIsOpen(false)} />
         ) : (
-          <Modal onClose={() => setIsOpen(false)} />
-        )
-      )}
+          <Modal onClose={() => setIsOpen(false)}/>
+        ))}
       <section className="max-w-[5%] fixed h-full z-10">
         <div className="px-4 py-3 flex flex-col justify-between items-center h-full bg-white">
           <div>

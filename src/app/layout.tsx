@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
+import { TaskProvider } from "@/contexts/Task.context";
 
 export const metadata: Metadata = {
   title: "Dooit",
@@ -34,7 +35,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col  ">{children}</body>
+      <body className="min-h-full flex flex-col  ">
+        <TaskProvider>{children}</TaskProvider>
+      </body>
     </html>
   );
 }

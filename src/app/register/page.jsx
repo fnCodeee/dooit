@@ -2,10 +2,8 @@
 
 import Register from "@/components/register";
 import authService from "@/services/auth.service.js";
-import { useRouter } from "next/navigation";
 
 export default function Page() {
-  const router = useRouter();
 
   const handleRegister = async (payload) => {
     try {
@@ -14,10 +12,10 @@ export default function Page() {
       alert("Register berhasil!");
 
       // redirect ke login
-      router.push("/login");
+      window.location.href = "/login";
     } catch (error) {
       console.error(error);
-      alert("Register gagal!");
+      alert(error.response?.data.message);
     }
   };
 

@@ -1,10 +1,9 @@
 // Awali dengan bx bx-${icons}
-export const Icons = [
-  "dumbbell-alt",
-  "book-open",
-  "briefcase-alt-2",
-  "popcorn",
-  "fork-spoon",
-  "dollar-circle",
-  "globe-alt",
-];
+export const Icons = {
+  0: "dumbbell-alt",
+  1: "book-open",
+  2: "briefcase-alt-2",
+  3: "popcorn",
+  4: "fork-spoon",
+  5: "dollar-circle",
+}

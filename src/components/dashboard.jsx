@@ -4,28 +4,11 @@ import Dummy from "./Elements/Dummy.jsx";
 import Todo from "./Elements/Todo.jsx";
 import DashboardLayout from "./Layout/DashboardLayout.jsx";
 import taskService from "@/services/task.service.js";
+import { useTask } from "@/hooks/useTask.jsx";
 
 export default function Dashboard() {
-  const [tasks, setTasks] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const fetchTask = async () => {
-    try {
-      const data = await taskService.getAll();
-      setTasks(data.data);
-      console.log("fetch", data);
-    } catch (error) {
-      console.error("gagal ambil data!", error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchTask();
-  }, []);
-  console.log("console tasks after useEffect", tasks)
-
+  const { tasks, loading } = useTask()
+  console.log("dari tasks: ", tasks)
   // VIEW
   return (
     <DashboardLayout>
@@ -46,6 +29,7 @@ export default function Dashboard() {
             priority={value.priority}
             startFrom={value.startFrom}
             deadline={value.deadline}
+            categoryIcon={value.categoryIcon}
           />
         ))
       )}
